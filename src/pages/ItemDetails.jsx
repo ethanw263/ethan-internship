@@ -1,13 +1,23 @@
 import React, { useEffect } from "react";
 import EthImage from "../images/ethereum.svg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import AuthorImage from "../images/author_thumbnail.jpg";
 import nftImage from "../images/nftImage.jpg";
 
 const ItemDetails = () => {
+  const { nftId } = useParams();
+  const location = useLocation();
+  const item = location.state?.item;
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (!item) {
+    // Handle case where item is not available, maybe show a loading state or fetch data based on nftId
+    return <div>Loading...</div>;
+  }
 
   return (
     <div id="wrapper">
@@ -18,7 +28,7 @@ const ItemDetails = () => {
             <div className="row">
               <div className="col-md-6 text-center">
                 <img
-                  src={nftImage}
+                  src={item.nftImage}
                   className="img-fluid img-rounded mb-sm-30 nft-image"
                   alt=""
                 />
