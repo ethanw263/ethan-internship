@@ -8,7 +8,7 @@ const Explore = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    //Test Comment
+    // FROM MAIN!! DO NOT REMOVE
   }, []);
 
   return (
