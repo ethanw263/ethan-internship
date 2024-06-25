@@ -6,6 +6,7 @@ import nftImage from "../../images/nftImage.jpg";
 const AuthorItems = ({ author }) => {
   const loading = !author || (!Array.isArray(author.nftCollection));
 
+  
   return (
     <div className="de_tab_content">
       <div className="tab-1">
@@ -95,7 +96,7 @@ const AuthorItems = ({ author }) => {
                           </div>
                         </div>
                       </div>
-                      <Link to={`/item-details/${item.nftId}`} state={{ item }}>
+                      <Link to={`/item-details/${item.nftId}`} state={{ item, author }}>
                         <img
                           src={item.nftImage}
                           className="lazy nft__item_preview"
@@ -104,7 +105,7 @@ const AuthorItems = ({ author }) => {
                       </Link>
                     </div>
                     <div className="nft__item_info">
-                      <Link to={`/item-details/${item.nftId}`} state={{ item }}>
+                      <Link to={`/item-details/${item.nftId}`} state={{ item, author }}>
                         <h4>{item.title}</h4>
                       </Link>
                       <div className="nft__item_price">{item.price} ETH</div>
